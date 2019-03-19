@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>template for simple games</title>
+    <script type="text/javascript"
+            src = "simpleGame.js"></script>
+    <script type="text/javascript">
+        var scene;
+        var car;
+        
+        function init(){
+            scene = new Scene();
+            car = new Sprite(scene, "car2.png", 60, 35);
+            car.setSpeed(0);
+            car.setAngle(-90);
+            
+            scene.start();
+        } // end init
+        
+        function update(){
+            scene.clear();
+            if(keysDown[K_LEFT]&&car.speed != 0){
+                car.changeAngleBy(-10);
+            }if(keysDown[K_RIGHT]&&car.speed != 0){
+                car.changeAngleBy(10);
+            }if(keysDown[K_UP]){
+                car.changeSpeedBy(0.5);
+            }if(keysDown[K_DOWN]){
+                car.changeSpeedBy(-0.5);
+            }if(keysDown[null]){
+                car.changeSpeedBy(-0.5)
+            }
+            //handle events here
+            
+            //update all the sprites
+            car.update();
+        }
+    </script>
+</head>
+<body onload = "init()">
+    
+</body>
+</html>
